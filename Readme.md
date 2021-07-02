@@ -6,7 +6,7 @@
 * And copy .dll files from Dll folder to the x64/debug or x64/Release folder.
 
 # 3D Game scenes
-![output](https://github.com/Alavy/Shooter/blob/main/Images/3dshooterScene.jpg?raw=true)
+![output](https://github.com/Alavy/Shooter/blob/master/Images/3dshooterScene.jpg?raw=true)
 # 2D Games Scenes
-![output](https://github.com/Alavy/Shooter/blob/main/Images/2dShooterScene.jpg?raw=true)
+![output](https://github.com/Alavy/Shooter/blob/master/Images/2dShooterScene.jpg?raw=true)
 
