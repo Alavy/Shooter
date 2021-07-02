@@ -63,8 +63,8 @@ int main()
 
     float currentTime = 0;
     float lastTime = 0;
-    //Game2D game(WIDTH, HEIGHT, window);
-    Game game(WIDTH, HEIGHT, window);
+    Game2D game(WIDTH, HEIGHT, window);
+    //Game game(WIDTH, HEIGHT, window);
     game.Init();
 
 

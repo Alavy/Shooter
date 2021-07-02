@@ -84,6 +84,21 @@ void Game2D::ProcessInput(float elapsedTime, float deltaTime)
 	if (glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(m_window, true);
 
+	if (glfwGetKey(m_window, GLFW_KEY_L) == GLFW_PRESS) {
+		if (elapsedTime > m_previousTime + 1) {
+			m_cursorIsActive = !m_cursorIsActive;
+			m_previousTime = elapsedTime;
+		}
+
+
+	}
+	if (m_cursorIsActive) {
+		glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	}
+	else {
+		glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+
+	}
 	if (glfwGetKey(m_window, GLFW_KEY_W) == GLFW_PRESS)
 	{
 	}

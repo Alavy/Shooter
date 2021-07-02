@@ -35,6 +35,9 @@ private:
 	int32 m_velocityIterations = 6;
 	int32 m_positionIterations = 2;
 
+	GLfloat m_previousTime = 0.0f;
+	bool m_cursorIsActive = true;
+
 	Camera2D* m_camera2d = nullptr;
 	glm::vec3 m_CameraPos = glm::vec3(0.0f);
 	bool oneTime = false;
