@@ -1,0 +1,2 @@
+C:/Users/Abdullah/Desktop/Graphics Lab/Shooter/Libraries/Include/glm/out/build/x64-Debug (default)/CMakeFiles/edit_cache.dir
+C:/Users/Abdullah/Desktop/Graphics Lab/Shooter/Libraries/Include/glm/out/build/x64-Debug (default)/CMakeFiles/rebuild_cache.dir

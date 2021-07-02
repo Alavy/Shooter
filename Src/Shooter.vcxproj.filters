@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{4bae82b5-809a-4135-84ed-cf5aa9e468a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{ddda78fc-58b9-4ad5-9c20-76a03ecf2f1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Shaders">
+      <UniqueIdentifier>{d6ee1129-e9fb-428e-a8f8-7a51f23d5426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LevelData">
+      <UniqueIdentifier>{cf731ccf-64d9-48a6-90e6-d04ad5d56944}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\2D">
+      <UniqueIdentifier>{ba3d22cb-b3bd-4f55-b92d-320ee1961171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\2D">
+      <UniqueIdentifier>{89dcbe0b-d833-4649-98ce-c0824343ac55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\3D">
+      <UniqueIdentifier>{1adc6ab4-0fa9-4e88-9a78-825a1bb78ac9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\3D">
+      <UniqueIdentifier>{ad398146-7d79-4190-93ba-2b51c4fa2a19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\3D\Entities">
+      <UniqueIdentifier>{3514c8ea-af34-4213-aa37-188c6cebae31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\3D\Entities">
+      <UniqueIdentifier>{8dd4a460-cda3-4a88-a715-f5ab390f3284}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VBO.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="VAO.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="EBO.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="StbImage.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera2D.cpp">
+      <Filter>Source Files\Core\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Source Files\Core\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy2D.cpp">
+      <Filter>Source Files\Core\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Game2D.cpp">
+      <Filter>Source Files\Core\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Level2D.cpp">
+      <Filter>Source Files\Core\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Player2D.cpp">
+      <Filter>Source Files\Core\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Core\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture2D.cpp">
+      <Filter>Source Files\Core\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files\Core\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\Core\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinMeshRenderer.cpp">
+      <Filter>Source Files\Core\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshRenderer.cpp">
+      <Filter>Source Files\Core\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinMeshVertex.cpp">
+      <Filter>Source Files\Core\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinMesh.cpp">
+      <Filter>Source Files\Core\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Vertex.cpp">
+      <Filter>Source Files\Core\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Source Files\Core\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Core\3D\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC.cpp">
+      <Filter>Source Files\Core\3D\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files\Core\3D\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyBox.cpp">
+      <Filter>Source Files\Core\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="BezierObject.cpp">
+      <Filter>Source Files\Core\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VBO.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderProgram.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="VAO.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="EBO.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>Header Files\Core\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera2D.h">
+      <Filter>Header Files\Core\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Player2D.h">
+      <Filter>Header Files\Core\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Level2D.h">
+      <Filter>Header Files\Core\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game2D.h">
+      <Filter>Header Files\Core\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy2D.h">
+      <Filter>Header Files\Core\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files\Core\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture2D.h">
+      <Filter>Header Files\Core\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files\Core\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files\Core\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinMeshRenderer.h">
+      <Filter>Header Files\Core\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshRenderer.h">
+      <Filter>Header Files\Core\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinMeshVertex.h">
+      <Filter>Header Files\Core\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinMesh.h">
+      <Filter>Header Files\Core\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Header Files\Core\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files\Core\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Core\3D\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC.h">
+      <Filter>Header Files\Core\3D\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files\Core\3D\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyBox.h">
+      <Filter>Header Files\Core\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="BezierObject.h">
+      <Filter>Header Files\Core\3D\Entities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Shooter.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="default.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="default.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="sprite.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="sprite.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="skinmesh.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="skinmesh.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="normalmesh.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="normalmesh.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="cubemap.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="cubemap.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="text.vert">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+    <None Include="text.frag">
+      <Filter>Source Files\Shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Level1.txt">
+      <Filter>LevelData</Filter>
+    </Text>
+    <Text Include="Level.txt">
+      <Filter>LevelData</Filter>
+    </Text>
+    <Text Include="Level3d.txt">
+      <Filter>LevelData</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

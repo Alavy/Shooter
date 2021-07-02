@@ -1,0 +1,38 @@
+# Blender MTL File: 'tree.blend'
+# Material Count: 3
+
+newmtl Cocos_palm1_bark1a
+Ns 179.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.671642 0.671642 0.671642
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump E:\\HunterPro\\Assets\\Tropical_nature_pack\\Trees Ambient-Occlusion\\Cocos_palm\\Resources\\cocos_bark1_nmp.tif
+map_Kd E:\\HunterPro\\Assets\\Tropical_nature_pack\\Trees Ambient-Occlusion\\Cocos_palm\\Resources\\cocos_bark1.tif
+
+newmtl Cocos_palm1_bark1b
+Ns 179.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.666667 0.666667 0.666667
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump E:\\HunterPro\\Assets\\Tropical_nature_pack\\Trees Ambient-Occlusion\\Cocos_palm\\Resources\\cocos_bark2_nmp.tif
+map_Kd E:\\HunterPro\\Assets\\Tropical_nature_pack\\Trees Ambient-Occlusion\\Cocos_palm\\Resources\\cocos_bark2.tif
+
+newmtl Cocos_palm1_leafs
+Ns 179.999996
+Ka 1.000000 1.000000 1.000000
+Kd 0.514925 0.514925 0.514925
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd cocos_leafs.png
+map_d E:\\HunterPro\\Assets\\Tropical_nature_pack\\Trees Ambient-Occlusion\\Cocos_palm\\Resources\\cocos_leafs.tif

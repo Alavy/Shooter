@@ -1,0 +1,5 @@
+cowboy=600
+orc1=320
+orc2=360
+spartan=320
+mommy=800
