@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Abdullah\Desktop\Graphics Lab\Shooter\Libraries\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Abdullah\Desktop\Graphics Lab\Shooter\Libraries\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)/Libraries/Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Libraries/Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
