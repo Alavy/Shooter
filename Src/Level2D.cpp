@@ -21,6 +21,7 @@ Level2D::Level2D(glm::vec3 pos,
     m_camera2d = camera;
     Move(m_position, 0);
     calculateLevelVertices("Level.txt", vertices, collisionEdges);
+    calculateNavPath("path.txt");
 
     m_howmanyVertices = vertices.size();
 
@@ -99,7 +100,6 @@ void Level2D::Move(glm::vec3 pos, float angleDegree)
         1, GL_FALSE,
         glm::value_ptr(modelMat));
 }
-
 Level2D::~Level2D()
 {
 }
@@ -118,7 +118,7 @@ void Level2D::readLevelData(std::vector<std::string> &leveldata,const char* file
         leveldata.push_back(data);
     }
     std::reverse(leveldata.begin(), leveldata.end());
-
+    //std::cout << leveldata[4] << std::endl;
     file.close();
 }
 
@@ -251,3 +251,119 @@ void Level2D::insertCollisionGeometry(std::vector<b2Vec2>& collisionEdges, int i
         i * m_sizeInWorldSpace.y + m_sizeInWorldSpace.y / 2.0));
 }
 
+void Level2D::calculateNavPath(const char* filePath)
+{
+    readLevelData(m_pathData, filePath);
+}
+bool Level2D::IsInWalkableTile(glm::vec3 pos)
+{
+    int x = (int)pos.x / m_sizeInWorldSpace.x;
+    int y = (int)pos.y / m_sizeInWorldSpace.y;
+
+    x = x % m_pathData[0].size();
+    y = y % m_pathData.size();
+
+    if (m_pathData[y][x] == 'p') {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+glm::vec3 Level2D::FindNeighbourTile(glm::vec3 pos,GLfloat F,glm::vec3 targetPos)
+{
+    int x = (int)pos.x / m_sizeInWorldSpace.x;
+    int y = (int)pos.y / m_sizeInWorldSpace.y;
+
+    //x = x % m_pathData[0].size();
+    //y = y % m_pathData.size();
+
+    glm::vec3 neighbourPos = pos;
+    GLfloat minDistance=898696675675;
+    //std::cout <<"x: " << x << std::endl;
+    //std::cout <<"y: " << y << std::endl;
+    if (x < 0 || y < 0) {
+        return glm::vec3();
+    }
+
+
+    if (m_pathData[y][x-1] == 'p') {
+        glm::vec3 pos = glm::vec3( (x - 1) * m_sizeInWorldSpace.x, y * m_sizeInWorldSpace.y, 0);
+
+        float dis = F+1+glm::distance(pos,targetPos);
+        if (minDistance > dis) {
+            minDistance = dis;
+            neighbourPos = pos;
+        }
+        //std::cout << "yo" << std::endl;
+
+    }
+    if (m_pathData[y][x+1] =='p') {
+        glm::vec3 pos = glm::vec3( (x + 1) * m_sizeInWorldSpace.x, y * m_sizeInWorldSpace.y, 0);
+        float dis = F + 1+glm::distance(pos, targetPos);
+        if (minDistance > dis) {
+            minDistance = dis;
+            neighbourPos = pos;
+        }
+        //std::cout << "yo" << std::endl;
+
+    }
+    if (m_pathData[y-1][x-1]=='p') {
+       glm::vec3 pos=  glm::vec3( (x - 1) * m_sizeInWorldSpace.x, (y - 1) * m_sizeInWorldSpace.y, 0);
+       float dis = F + 1 + glm::distance(pos, targetPos);
+       if (minDistance > dis) {
+           minDistance = dis;
+           neighbourPos = pos;
+       }
+
+    }
+    if (m_pathData[y-1][x] =='p') {
+       glm::vec3 pos = glm::vec3( (x ) * m_sizeInWorldSpace.x, (y - 1) * m_sizeInWorldSpace.y, 0);
+       float dis = F + 1 + glm::distance(pos, targetPos);
+       if (minDistance > dis) {
+           minDistance = dis;
+           neighbourPos = pos;
+       }
+
+    }
+    if (m_pathData[y-1][x+1]=='p') {
+        glm::vec3 pos = glm::vec3( (x+1)*m_sizeInWorldSpace.x, (y - 1) * m_sizeInWorldSpace.y, 0);
+        float dis = F + 1 + glm::distance(pos, targetPos);
+        if (minDistance > dis) {
+            minDistance = dis;
+            neighbourPos = pos;
+        }
+
+    }
+    if (m_pathData[y+1][x-1] == 'p') {
+        glm::vec3 pos = glm::vec3( (x - 1) * m_sizeInWorldSpace.x, (y + 1) * m_sizeInWorldSpace.y, 0);
+        float dis = F + 1 + glm::distance(pos, targetPos);
+        if (minDistance > dis) {
+            minDistance = dis;
+            neighbourPos = pos;
+        }
+
+    }
+    if (m_pathData[y+1][x] == 'p') {
+        glm::vec3 pos =glm::vec3( (x ) * m_sizeInWorldSpace.x, (y + 1) * m_sizeInWorldSpace.y, 0);
+        float dis = F + 1 + glm::distance(pos, targetPos);
+        if (minDistance > dis) {
+            minDistance = dis;
+            neighbourPos = pos;
+        }
+
+    }
+    if (m_pathData[y+1][x+1]=='p') {
+        glm::vec3 pos = glm::vec3( (x+1)*m_sizeInWorldSpace.x, (y + 1) * m_sizeInWorldSpace.y, 0);
+        float dis = F + 1+glm::distance(pos, targetPos);
+        if (minDistance > dis) {
+            minDistance = dis;
+            neighbourPos = pos;
+        }
+
+    }
+
+    //std::cout << minDistance << std::endl;
+    return neighbourPos;
+}

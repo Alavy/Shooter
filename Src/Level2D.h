@@ -33,6 +33,9 @@ public:
 	void Move(glm::vec3 pos, float angleDegree);
 	glm::vec3 PlayerPosition() { return m_playerPos;  }
 	std::vector<glm::vec3> EnemyPositions() { return m_enemyPos; }
+	bool IsInWalkableTile(glm::vec3 pos);
+	glm::vec3 FindNeighbourTile(glm::vec3 pos, GLfloat F, glm::vec3 targetPos);
+
 	~Level2D();
 private:
 	VAO* m_vao = nullptr;
@@ -51,10 +54,12 @@ private:
 	glm::vec3 m_sizeInWorldSpace = glm::vec3(0.0f);
 	glm::vec3 m_playerPos= glm::vec3(0.0f);
 	std::vector<glm::vec3> m_enemyPos;
+	std::vector<std::string> m_pathData;
 
 	// methods
 	void readLevelData(std::vector<std::string>& leveldata,const char* filePath);
 	void calculateLevelVertices(const char* filePath, std::vector<GLfloat>& vertices,std::vector<b2Vec2>& collisionEdges);
 	void insertVertices(std::vector<GLfloat>& vertices,int i,int j, GLfloat uvBaseX, GLfloat uvBaseY);
 	void insertCollisionGeometry(std::vector<b2Vec2>& collisionEdges, int i, int j, bool firstVert);
+	void calculateNavPath(const char* filePath);
 };

@@ -71,7 +71,7 @@ SpriteRenderer::SpriteRenderer(const char* textureFilePath,
 
 }
 
-void SpriteRenderer::animate()
+void SpriteRenderer::animate(float elapsedTime, float deltaTime)
 {
     // calculating the base of the each frame
     float baseX = (float)( static_cast<int>(m_currentAnimIndex)) * m_animStepX;
@@ -88,7 +88,7 @@ void SpriteRenderer::animate()
     uvData[7] = baseY + m_animStepY;
 
     m_vbo_uv->PassData(uvData,sizeof(uvData));
-    m_currentAnimIndex = m_currentAnimIndex + (1/ static_cast<GLfloat>(m_currentAnim.z))*m_freezeAnimMul;
+    m_currentAnimIndex = m_currentAnimIndex + (1/ static_cast<GLfloat>(m_currentAnim.z))*m_freezeAnimMul*deltaTime*m_animSpeed;
     if (m_currentAnimIndex >= m_currentAnim.y && m_currentAnimIndex < 0.0f) {
         m_currentAnimIndex = 0;
     }
@@ -126,7 +126,7 @@ void SpriteRenderer::SetCurrentAnim(glm::uvec3 animData)
 }
 
 
-void SpriteRenderer::Draw()
+void SpriteRenderer::Draw(float elapsedTime, float deltaTime)
 {
     m_shaderProgram->Use();
 
@@ -137,7 +137,7 @@ void SpriteRenderer::Draw()
 
     m_texture->Bind();
     m_vao->Bind();
-    animate();
+    animate(elapsedTime, deltaTime);
     glDrawElements(GL_TRIANGLES, m_elementCount, GL_UNSIGNED_INT, 0);
 }
 

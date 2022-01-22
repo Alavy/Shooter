@@ -33,7 +33,10 @@ void Game2D::Init()
 	for (int i = 0; i < enemyPos.size(); i++) {
 		m_enemys.emplace_back(new Enemy2D(m_world,
 			enemyPos[i],
-			glm::vec3(2, 2, 0), m_camera2d,
+			glm::vec3(2, 2, 0), 
+			m_camera2d,
+			m_player,
+			m_level,
 			glm::vec2(300, 300)));
 	}
 }
@@ -43,21 +46,20 @@ void Game2D::Update(float elapsedTime, float deltaTime)
 	m_world->Step(deltaTime, m_velocityIterations, m_positionIterations);
 
 	m_camera2d->UpdateCameraMat(m_player->Position());
-	m_player->Update(deltaTime);
+	m_player->Update(elapsedTime,deltaTime);
 	/// enemy update
 	for (int i = 0; i < m_enemys.size(); i++) {
-		m_enemys[i]->Update(deltaTime);
+		m_enemys[i]->Update(elapsedTime, deltaTime);
 	}
 }
 
 void Game2D::Render(float elapsedTime, float deltaTime)
 {
-	m_player->Draw();
-	m_level->Draw();
-
+	m_player->Draw(elapsedTime, deltaTime);
 	for (int i = 0; i < m_enemys.size(); i++) {
-		m_enemys[i]->Draw();
+		m_enemys[i]->Draw(elapsedTime, deltaTime);
 	}
+	m_level->Draw();
 }
 void Game2D::CleanUp()
 {
@@ -78,8 +80,8 @@ void Game2D::CleanUp()
 void Game2D::ProcessInput(float elapsedTime, float deltaTime)
 {
 	glm::vec2 playerForce = glm::vec2(0.0f);
-	GLfloat ForceValue = 100.0f;
-	GLfloat JumpValue = 1000.0f;
+	GLfloat ForceValue = 20.0f;
+	GLfloat JumpValue = 200.0f;
 
 	if (glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(m_window, true);
@@ -89,8 +91,6 @@ void Game2D::ProcessInput(float elapsedTime, float deltaTime)
 			m_cursorIsActive = !m_cursorIsActive;
 			m_previousTime = elapsedTime;
 		}
-
-
 	}
 	if (m_cursorIsActive) {
 		glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -99,33 +99,30 @@ void Game2D::ProcessInput(float elapsedTime, float deltaTime)
 		glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
 	}
-	if (glfwGetKey(m_window, GLFW_KEY_W) == GLFW_PRESS)
-	{
-	}
+	
 	if (glfwGetKey(m_window, GLFW_KEY_A) == GLFW_PRESS)
 	{
-		playerForce = playerForce + glm::vec2(-1,0);
+		playerForce = glm::vec2(-1,0);
 		m_player->ApplyForce(glm::normalize(playerForce) * ForceValue);
 
-	}
-	if (glfwGetKey(m_window, GLFW_KEY_S) == GLFW_PRESS)
-	{
 	}
 	if (glfwGetKey(m_window, GLFW_KEY_D) == GLFW_PRESS)
 	{
-		playerForce = playerForce + glm::vec2(1, 0);
+		playerForce = glm::vec2(1, 0);
 		m_player->ApplyForce(glm::normalize(playerForce) * ForceValue);
-
-
 	}
+
 	if (glfwGetKey(m_window, GLFW_KEY_SPACE) == GLFW_PRESS) {
 		if (m_player->IsOnGound()) {
-			playerForce = playerForce + glm::vec2(0, 1);
-			m_player->ApplyForce(glm::normalize(playerForce) * JumpValue);
+			m_isJumping = true;
 		}
-		
-
 	}
-
-
+	if (m_isJumping) {
+		playerForce = playerForce + glm::vec2(0, 1);
+		m_player->ApplyForce(glm::normalize(playerForce) * JumpValue);
+		if (elapsedTime > m_previousTime + 0.23f) {
+			m_previousTime = elapsedTime;
+			m_isJumping = false;
+		}
+	}
 }

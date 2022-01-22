@@ -61,7 +61,6 @@ int main()
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    float currentTime = 0;
     float lastTime = 0;
     Game2D game(WIDTH, HEIGHT, window);
     //Game game(WIDTH, HEIGHT, window);
@@ -78,11 +77,8 @@ int main()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
-
-        currentTime = glfwGetTime();
-        float delta = currentTime - lastTime;
-        lastTime = currentTime;
+        float delta = glfwGetTime() - lastTime;
+        lastTime = glfwGetTime();
         game.mouse_callback(Xpos, Ypos);
 
         // handle inputs

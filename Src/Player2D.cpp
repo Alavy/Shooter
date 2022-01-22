@@ -30,23 +30,24 @@ Player2D::Player2D(b2World* world,
     #pragma endregion
 }
 
-void Player2D::Draw()
+void Player2D::Draw(float elapsedTime, float deltaTime)
 {
-	m_sprite->Draw();
+	m_sprite->Draw(elapsedTime, deltaTime);
 }
 
-void Player2D::Update(float deltaTime)
+void Player2D::Update(float elapsedTime, float deltaTime)
 {
     // get sprite velocity
     glm::vec2 velocity = glm::vec2(m_body->GetLinearVelocity().x,
         m_body->GetLinearVelocity().y);
 
     // handling step
-    if (velocity.y > 0.1f) {
+    if (velocity.y > 0.1f ) {
         m_sprite->SetCurrentAnim(jumpAnim);
         if (m_sprite->GetCurrentAnimIndex() > 8.5f) {
             m_sprite->FreezeAnim();
         }
+
     }
     /*
     else if (velocity.y < -0.1f) {
@@ -57,11 +58,11 @@ void Player2D::Update(float deltaTime)
         }
     }
     */
-    else if (std::abs(velocity.x) > 0.1) {
+    else if (std::abs(velocity.x) > 0.1f && IsOnGound()) {
         m_sprite->UnFreezeAnim();
         m_sprite->SetCurrentAnim(runAnim);
     }
-    else {
+    else if(IsOnGound()) {
         m_sprite->UnFreezeAnim();
         m_sprite->SetCurrentAnim(idleAnim);
     }
@@ -97,7 +98,7 @@ void Player2D::CleanUp()
 
 bool Player2D::IsOnGound()
 {
-    if (std::abs(m_body->GetLinearVelocity().y) < 0.008f) {
+    if (std::abs(m_body->GetLinearVelocity().y) < 0.0008f) {
         return true;
     }
     return false;

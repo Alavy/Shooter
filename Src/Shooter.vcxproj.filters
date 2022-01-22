@@ -278,5 +278,8 @@
     <Text Include="Level3d.txt">
       <Filter>LevelData</Filter>
     </Text>
+    <Text Include="path.txt">
+      <Filter>LevelData</Filter>
+    </Text>
   </ItemGroup>
 </Project>

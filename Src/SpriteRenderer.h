@@ -29,7 +29,7 @@ public:
 		glm::vec2 frameSize,
 		b2World * world);
 	~SpriteRenderer();
-	void Draw();
+	void Draw(float elapsedTime, float deltaTime);
 	void CleanUp();
 	void Move(glm::vec3 pos, float angleDegree);
 	void Scale(glm::vec3 scale);
@@ -62,10 +62,11 @@ private:
 
 	GLfloat m_animStepX = 0;
 	GLfloat m_animStepY = 0;
+	GLfloat m_animSpeed = 60.0f;
 	// row , number of frame
 	glm::uvec3 m_currentAnim = glm::uvec3(0,0,0);
 
 	GLfloat m_currentAnimIndex = 0;
 	GLfloat m_freezeAnimMul = 1.0f;
-	void animate();
+	void animate(float elapsedTime, float deltaTime);
 };

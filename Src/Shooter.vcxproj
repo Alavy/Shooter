@@ -229,6 +229,7 @@
     <Text Include="Level.txt" />
     <Text Include="Level1.txt" />
     <Text Include="Level3d.txt" />
+    <Text Include="path.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

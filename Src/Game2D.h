@@ -41,5 +41,6 @@ private:
 	Camera2D* m_camera2d = nullptr;
 	glm::vec3 m_CameraPos = glm::vec3(0.0f);
 	bool oneTime = false;
+	bool m_isJumping = false;
 
 };
