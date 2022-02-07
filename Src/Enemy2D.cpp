@@ -42,7 +42,6 @@ void Enemy2D::Draw(float elapsedTime, float deltaTime)
 void Enemy2D::Update(float elapsedTime, float deltaTime)
 {
     findPath();
-
     // get sprite velocity
     glm::vec2 velocity = glm::vec2(m_body->GetLinearVelocity().x,
         m_body->GetLinearVelocity().y);
@@ -73,7 +72,7 @@ void Enemy2D::Update(float elapsedTime, float deltaTime)
 
     }
     m_sprite->Move(glm::vec3(m_body->GetPosition().x, m_body->GetPosition().y, 0), 0.0f);
-    m_level->IsInWalkableTile(m_player->Position());
+    //m_level->IsInWalkableTile(m_player->Position());
 }
 
 void Enemy2D::ApplyForce(glm::vec2 force)

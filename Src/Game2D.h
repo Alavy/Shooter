@@ -2,6 +2,7 @@
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
 #include"SpriteRenderer.h"
+#include"TextRenderer.h"
 #include"Camera2D.h"
 #include"Level2D.h"
 #include"Player2D.h"
@@ -30,6 +31,7 @@ private:
 	GLFWwindow* m_window = nullptr;
 	Level2D * m_level = nullptr;
 	Player2D* m_player = nullptr;
+	TextRenderer* m_textRenderer = nullptr;
 	std::vector<Enemy2D*> m_enemys;
 	b2World* m_world=nullptr;
 	int32 m_velocityIterations = 6;
@@ -37,7 +39,7 @@ private:
 
 	GLfloat m_previousTime = 0.0f;
 	bool m_cursorIsActive = true;
-
+	bool isGameOver = false;
 	Camera2D* m_camera2d = nullptr;
 	glm::vec3 m_CameraPos = glm::vec3(0.0f);
 	bool oneTime = false;

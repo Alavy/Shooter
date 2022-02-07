@@ -39,10 +39,14 @@ void Game2D::Init()
 			m_level,
 			glm::vec2(300, 300)));
 	}
+	m_textRenderer = new TextRenderer("Assets/fonts/Antonio-Bold.ttf",
+		m_width, m_height);
 }
 
 void Game2D::Update(float elapsedTime, float deltaTime)
 {
+	if (isGameOver)
+		return;
 	m_world->Step(deltaTime, m_velocityIterations, m_positionIterations);
 
 	m_camera2d->UpdateCameraMat(m_player->Position());
@@ -55,6 +59,17 @@ void Game2D::Update(float elapsedTime, float deltaTime)
 
 void Game2D::Render(float elapsedTime, float deltaTime)
 {
+
+	for (int i = 0; i < m_enemys.size(); i++) {
+		float dis = glm::distance(m_player->Position(), m_enemys[i]->Position());
+		//std::cout << dis << std::endl;
+		if (dis <= 2.2f) {
+			m_textRenderer->RenderText("YOU Lose Big Time",
+				m_width / 2, m_height / 2, 1.5f, glm::vec3(1, 0.0, 0.0));
+			//isGameOver = true;
+		}
+	}
+
 	m_player->Draw(elapsedTime, deltaTime);
 	for (int i = 0; i < m_enemys.size(); i++) {
 		m_enemys[i]->Draw(elapsedTime, deltaTime);
@@ -65,6 +80,8 @@ void Game2D::CleanUp()
 {
 	m_player->CleanUp();
 	m_level->CleanUp();
+	m_textRenderer->CleanUp();
+
 	for (int i = 0; i < m_enemys.size(); i++) {
 		m_enemys[i]->CleanUp();
 	}
@@ -79,10 +96,6 @@ void Game2D::CleanUp()
 }
 void Game2D::ProcessInput(float elapsedTime, float deltaTime)
 {
-	glm::vec2 playerForce = glm::vec2(0.0f);
-	GLfloat ForceValue = 20.0f;
-	GLfloat JumpValue = 200.0f;
-
 	if (glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(m_window, true);
 
@@ -99,10 +112,17 @@ void Game2D::ProcessInput(float elapsedTime, float deltaTime)
 		glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
 	}
-	
+
+	if (isGameOver) {
+		return;
+	}
+	glm::vec2 playerForce = glm::vec2(0.0f);
+	GLfloat ForceValue = 20.0f;
+	GLfloat JumpValue = 200.0f;
+
 	if (glfwGetKey(m_window, GLFW_KEY_A) == GLFW_PRESS)
 	{
-		playerForce = glm::vec2(-1,0);
+		playerForce = glm::vec2(-1, 0);
 		m_player->ApplyForce(glm::normalize(playerForce) * ForceValue);
 
 	}
